@@ -8,23 +8,23 @@
             text-align: left;
             width: 340px;
             height: 360px;
-            border: 1px solid black; /* Sets the border to 2px solid black */
-            padding: 23px; /* Adds some padding inside the box */
+            border: 0.5px solid black; 
+            padding: 23px; 
             border-radius: 15px; 
         }
         .legend {
-            font-size: 30px; /* Increase the font size */
-            font-weight: bold;/* Optional: make the font bold */
+            font-size: 30px;
+            font-weight: bold;
             font-style: inherit;
         }
         input[type="email"] {
-            width: 93%; /* Make the input stretch across the full width of the box */
+            width: 93%; 
 
             autofocus
             required
-            box-sizing: border-box; /* Include padding and border in the width calculation */
-            padding: 10px; /* Add padding inside the input */
-            margin: 0; /* Remove any margin */
+            box-sizing: border-box; 
+            padding: 10px;
+            margin: 0; 
         }
         button {
             width: 100%;
@@ -32,21 +32,31 @@
             box-sizing: border-box; 
             margin: 0;
             background-color:greenyellow;
+            border-radius: 15px; 
         }
         .l {
-            font-size: 15px; /* Increase the font size */
-            font-weight: bold;/* Optional: make the font bold */
+            font-size: 15px; 
+            font-weight: bold;
         }
         .l1{
+            
             width: 25%;
             padding: 10px;
             box-sizing: border-box;
             margin : 0; 
+            font-size: 15px; 
+            font-weight: bold;
+            autofocus required
             border-radius: 10px;
             background-color: white;
             border:1px solid black;
+            border-radius: 15px; 
         }
-    
+        .h{
+            color: green ;
+            margin:0;
+            width:390px;
+        }
     </style>
 </head>
 <body>
@@ -72,14 +82,20 @@
                 <option><a href="https://www.amazon.in/gp/help/customer/account-issues/ref=ap_login_with_otp_claim_collection?ie=UTF8">Other issues with sign-in</a></option>
                </select>
                <br>
+               
                 <hr>
                 <p class="l">Buying for Work?</p> 
                
 
         </div>
-        <hr>New to Amazon?</hr>
+        <br>
+        <br>
+        <hr class="h">
+        New to Amazon?
         <br>
         <button class="l1">Create your Amazon account </button>
+        <br>
+        <hr>
     </center>
 
  
