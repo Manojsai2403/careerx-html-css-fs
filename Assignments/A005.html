@@ -6,19 +6,29 @@
     <title>Document</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
+        body{
+            margin:0;
+            padding:0;
+            /* background-color:black; */
+        }
         .c {
+            margin:0;
+            padding:0;
             background-image: url("../image/netflix.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            /* background-color: black; */
-            width:1500px;
-            height:550px;
+            background-color: black; 
+            /* width:1500px; */
+             height:550px; 
             position: relative;
+             border:0; 
         }
         .c1 {
+            margin:0;
+            padding:0;
             background-color: black;
             background-size: cover;
-            width:1500px;
+            /* width:1500px; */
             height:550px;
             position: relative;
         }
@@ -28,6 +38,7 @@
             text-align: left;
             font-style:inherit;
             letter-spacing: -1px;
+            margin:0;
         }
         select {
             font-size: x-large;
@@ -51,7 +62,8 @@
         .g {
           font-size: xxx-large;
           font-display: inherit;
-          color:white;
+           color:white ; 
+           /* g is used to make font */
           /* letter-spacing: -1px; */
         }
         .g1 {
@@ -61,30 +73,31 @@
           
         }
         input[type="email"] {
-            width: 90%; 
-            height:35%;
+            width: 94%; 
+            height:59%;
             autofocus
             required
+            background-color: rgba(0,0,0,0) ;
             box-sizing: border-box; 
             padding: 10px;
             margin: 0; 
         }
-        .g3{
+        .emailbox{
             font: xx-large;
             width:520px;
             height: 100px;
             position: absolute;
-            left:380px;
+            left:382px;
             border-radius: 10px;
-
+            background-color: rgba(0,0,0,0) ;
         }
-        .g4 {
+        .started {
             font: x-large;
             width:250px;
             height: 62px;
             position: absolute;
-            top:430px;
-            left:880px;
+            top:396px;
+            left:885px;
             border-radius: 10px;
 
         }
@@ -108,13 +121,10 @@
          <p class="g1">Watch anywhere. Cancel anytime</p>
          <p class="g1">Ready to watch? Enter your email to create or restart your membership.</p>
          </center>
-         <p class="g3"><input type="email" placeholder="Email address" multiple ></p>
-         <button class="g4">Get Started ></button>
+         <p class="emailbox"><input type="email" placeholder="Email address" multiple ></p>
+         <button class="started">Get Started ></button>
      </div>
-     <br>
      <div class="c1">
-           <br>
-           <br>
            <center>
             <p class="g">Enjoy on your TV</p>
             <p class="g1">Watch on smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players and more</p>
