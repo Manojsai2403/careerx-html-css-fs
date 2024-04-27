@@ -9,32 +9,41 @@
         body{
             margin:0;
             padding:0;
-            /* background-color:black; */
+            background-color:black; 
         }
         .c {
-            margin:0;
+            /* margin:0; */
             padding:0;
             background-image: url("../image/netflix.jpg");
             background-repeat: no-repeat;
             background-size: cover;
-            background-color: black; 
+            /* background-color: black;  */
             /* width:1500px; */
-             height:550px; 
+             height:700px; 
             position: relative;
-             border:0; 
+              border:0; 
         }
         .c1 {
-            margin:0;
+            margin-top:0px;
             padding:0;
             background-color: black;
             background-size: cover;
+            width:100%;
             /* width:1500px; */
             height:550px;
             position: relative;
+            border:0;
         }
-       body div {
-          padding:0;
-          margin:0;
+        .c2 {
+            margin-top:0px;
+            padding:0;
+            background-color: black;
+            background-size: cover;
+            width:100%;
+            /* width:1500px; */
+            height:550px;
+            position: relative;
+            border:0;
         }
         h1{
             font-size: xxx-large;
@@ -42,23 +51,24 @@
             text-align: left;
             font-style:inherit;
             letter-spacing: -1px;
-            margin:0;
+            margin-top: 30px;
+            margin-left:200px;
         }
         select {
-            font-size: x-large;
+            font-size: large;
             position: absolute;
-            top:0;
-            right:150px;
-            padding:5px;
+            top:58px;
+            right:330px;
+            padding:11px;
             border-radius: 8px;
 
         }
-        button {
-            font-size: x-large;
+        .signin {
+            font-size: large;
             position: absolute;
-            top:0;
-            right:40px;
-            padding:5px;
+            top:58px;
+            right:210px;
+            padding:11px;
             background-color: red;
             border-radius: 10px;
             width: 100px;
@@ -76,46 +86,109 @@
           color:white;
           
         }
+        .g2 {
+          font-size: x-large;
+          font-display: inherit;
+          color:blue;
+          
+        }
         input[type="email"] {
             width: 94%; 
             height:59%;
             autofocus
             required
-            background-color: rgba(0,0,0,0) ;
             box-sizing: border-box; 
             padding: 10px;
-            margin: 0; 
         }
         .emailbox{
             font: xx-large;
             width:520px;
-            height: 100px;
+            height: 50px;
             position: absolute;
             left:382px;
             border-radius: 10px;
-            background-color: rgba(0,0,0,0) ;
+            background-color: transparent;
+            
         }
         .started {
+            color:white;
             font: x-large;
-            width:250px;
-            height: 62px;
+            width:230px;
+            height: 58px;
             position: absolute;
-            top:396px;
-            left:885px;
+            top:478px;
+            left:900px;
+            padding:4px;
             border-radius: 10px;
+            background-color: red;
 
+        }
+        video{
+            position:absolute;
+            top:100px;
+            left:900px;
+        }
+        .enjoy{
+           position :relative;
+           top:100px;
+           left:100px;
+           width:600px;
+
+        }
+        .tv {
+            position:absolute;
+            top:10px;
+            left:820px;
+
+        }
+        .download{
+            position :relative;
+           top:100px;
+           left:780px;
+           width:500px;
+        }
+        .strange{
+            position:absolute;
+            left:30px;
+            top:10px;
+        }
+        .strange1{
+            position:absolute;
+            top:330px;
+            left:130px;
+           border:2px solid white;
+           width:380px;
+           height:100px;
+           background-color: black;
+           border-radius: 10px;
+           padding:5px;
+        }
+        .strange2 {
+            position:absolute;
+            left:100px;
+            top:0px;
+            height:50px
+        }
+        .icon{
+            position:absolute;
+            top:30px;
+            left:330px;
+            width:100px;
+            color:white;
+            height:100px;
         }
     </style>
 </head>
 <body>
      <div class="c">
+        <br>
          <h1> NETFLIX </h1>
          <!-- <i class="fa fa-font" aria-hidden="true"></i> -->
          <select>
            <option>English</option>
             <option>हिंदी</option>
          </select>
-         <button>Sign in</button>
+         <button class="signin">Sign in</button>
          <center>
          <br>
          <br>
@@ -127,12 +200,49 @@
          </center>
          <p class="emailbox"><input type="email" placeholder="Email address" multiple ></p>
          <button class="started">Get Started ></button>
+         <br>
      </div>
+     <hr>
      <div class="c1">
-           <center>
-            <p class="g">Enjoy on your TV</p>
-            <p class="g1">Watch on smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players and more</p>
-           </center>
+        <div class="enjoy">
+         <p class="g">Enjoy on your TV</p>
+         <p class="g1">Watch on smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players and more</p>
+         </div>
+         <video
+         src="https://assets.nflxext.com/ffe/siteui/acquisition/ourStory/fuji/desktop/video-tv-in-0819.m4v"
+         type="video/mp4"
+         autoplay
+         muted
+         loop
+       ></video>
+     
+        <div class="tv">
+       <img src="../image/tv.png"/>
      </div>
+     <br>
+     <br>
+     </div>
+     <hr>
+     <div class="c2">
+        <div class="download">
+            <p class="g">Download your shows to watch offline</p>
+            <p class="g1">Save your favourites easily and always have something to watch </p>
+
+        </div>
+        <div class="strange">
+            <img src="../image/strange.jpg"/>
+        <div class="strange1">
+            <img src="../image/strangerthings.png" width="80px" height="100px"/>
+             <div class="strange2">
+            <p class="g1">Stranger Things</p>
+            <p class="g2">Downloading...</p>
+             </div>
+             <div class="icon">
+                <i class="fa fa-arrow-circle-down" aria-hidden="true" width="50px" height="50px"></i>
+             </div>
+        </div>
+        </div>
+     </div>
+     <hr>
 </body>
 </html>
