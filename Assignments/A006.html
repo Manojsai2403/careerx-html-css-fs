@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script>
+      function f1() {
+        let inputValue = t1.value;
+        let spaceIndex = inputValue.indexOf(" ");
+        if (spaceIndex !== -1) {
+          inputValue = inputValue.substring(0, spaceIndex);
+        }
+        //  let n = t1.value;
+        let  n=parseInt(inputValue);
+        if(!isNaN(n)){
+            if(n>0) {
+            lbl.innerHTML = "Positive";
+            //   lbl.style.color="green"
+            //   lbl.style.background="yellow"
+            }else if(n<0){
+                lbl.innerHTML = "Negative";
+              //   lbl.style.color="blue"
+              //   lbl.style.background="pink"
+            }else{
+            lbl.innerHTML="Neither Positive nor Negative";
+            }
+        }else{
+            lbl.innerHTML="enter a valid input";
+        }
+      }
+      function f2() {
+        let inputValue1 = t2.value;
+        let inputValue2 = t3.value;
+        let spaceIndex1 = inputValue1.indexOf(" ");
+        if (spaceIndex1!== -1) {
+          inputValue1 = inputValue1.substring(0, spaceIndex1);
+        }
+        let spaceIndex2 = inputValue2.indexOf(" ");
+        if (spaceIndex2 !== -1) {
+          inputValue2 = inputValue2.substring(0, spaceIndex2);
+        }
+        //  let n = t1.value;
+        let  a=parseInt(inputValue1);
+        let  b=parseInt(inputValue2);
+        if(!isNaN(a) && !isNaN(b)){
+            if(a === b) {
+            lb1.innerHTML = "It is a Square ";
+            //   lbl.style.color="green"
+            //   lbl.style.background="yellow"
+            }else{
+            lb1.innerHTML="It is not a Square";
+            }
+        }else{
+            lb1.innerHTML="enter a valid input";
+        }
+      }
+      function f3() {
+        let inputValue1 = t4.value;
+        let inputValue2 = t5.value;
+        let inputValue3 = t6.value;
+
+        let spaceIndex1 = inputValue1.indexOf(" ");
+        if (spaceIndex1!== -1) {
+          inputValue1 = inputValue1.substring(0, spaceIndex1);
+        }
+        let spaceIndex2 = inputValue2.indexOf(" ");
+        if (spaceIndex2 !== -1) {
+          inputValue2 = inputValue2.substring(0, spaceIndex2);
+        }
+        let spaceIndex3 = inputValue3.indexOf(" ");
+        if (spaceIndex3!== -1) {
+          inputValue3 = inputValue3.substring(0, spaceIndex3);
+        }
+        //  let n = t1.value;
+        let  a=parseInt(inputValue1);
+        let  b=parseInt(inputValue2);
+        let  c=parseInt(inputValue3);
+        if(!isNaN(a) && !isNaN(b) && !isNaN(c)){
+            if(a>b && a>c) {
+            lb2.innerHTML = `${a} is greater`;
+            //   lbl.style.color="green"
+            //   lbl.style.background="yellow"
+            }else if(b>c && b>a){
+            lb2.innerHTML=`${b} is greater`;
+            }else if(c>a && c>b){
+            lb2.innerHTML=`${c} is greater`;
+            }else{
+                lb2.innerHTML="none of this Greatest";
+            }
+        }else{
+            lb2.innerHTML="enter a valid input";
+        }
+      }
+      function f4() {
+         let inp=t7.value;
+        let spaceindex=inp.indexOf(" ");
+        if(spaceindex!=-1){
+            inp=inp.substring(0,spaceindex);
+        }
+         let a=parseInt(inp);
+         let out="";
+         for(let i=1;i<6;i++){
+            let ans=a*i;
+            out+=`${ans} `;
+            // lb3.innerHTML=`${ans}  `;
+         }
+         lb3.innerHTML=out;
+
+      }
+      function f5() {
+         let inp=t8.value;
+        let spaceindex=inp.indexOf(" ");
+        if(spaceindex!=-1){
+            inp=inp.substring(0,spaceindex);
+        }
+         let a=parseInt(inp);
+         let out="";
+         let i=1;
+         while(i<6){
+            let ans=a*i;
+            out+=`${ans} `;
+            // lb3.innerHTML=`${ans}  `;
+            i++;
+         }
+         lb4.innerHTML=out;
+
+      }
+      function f6() {
+       let out="";
+        let v=1;
+        let i=1;
+        out+=`${v} `;
+        while(i<6){
+            v=v+5;
+           out+=`${v} `;
+
+           i++;
+        }
+        lb5.innerHTML=out;
+      }
+      function f7() {
+        let inputValue = t9.value;
+        let spaceIndex = inputValue.indexOf(" ");
+        if (spaceIndex !== -1) {
+          inputValue = inputValue.substring(0, spaceIndex);
+        }
+        //  let n = t1.value;
+        let  n=parseInt(inputValue);
+        if(!isNaN(n)){
+            if(n%5===0) {
+            lb6.innerHTML = "Divisible by 5";
+            //   lbl.style.color="green"
+            //   lbl.style.background="yellow"
+            }else{
+            lb6.innerHTML="Not Divisible by 5";
+            }
+        }else{
+            lb6.innerHTML="enter a valid input";
+        }
+      }
+      function f8() {
+        let inputValue = t10.value;
+        let spaceIndex = inputValue.indexOf(" ");
+        if (spaceIndex !== -1) {
+          inputValue = inputValue.substring(0, spaceIndex);
+        }
+        //  let n = t1.value;
+        let  n=parseInt(inputValue);
+        if(!isNaN(n)){
+            if(n>=0 && n<25) {
+            lb7.innerHTML = "F";
+            //   lbl.style.color="green"
+            //   lbl.style.background="yellow"
+            }else if(n>=25 && n<45 ) {
+            lb7.innerHTML="E";
+            }else if(n>=45 && n<50){
+                lb7.innerHTML="D";
+            }else if(n>=50 && n<60){
+                lb7.innerHTML="C";
+            }else if(n>=60 && n<80){
+                lb7.innerHTML="B";
+            }else if(n>80 && n<=100){
+                lb7.innerHTML="A";
+            }else{
+                lb7.innerHTML="enter value in range 0-100"
+            }
+        }else{
+            lb7.innerHTML="enter a valid input";
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <p>program to print given number is positive or negative</p>
+    <p><input type="text" id="t1" /></p>
+    <button onclick="f1()">Submit</button>
+    <p><label id="lbl"></label></p>
+    <hr>
+    <p>program to check it is square or not</p>
+    <p><input type="text" id="t2"/></p>
+    <p><input type="text" id="t3"/></p>
+    <button onclick="f2()">Submit</button>
+    <p><label id="lb1"></label></p>
+    <hr>
+    <p>program to check which number is Greatest</p>
+    <p><input type="text" id="t4"/></p>
+    <p><input type="text" id="t5"/></p>
+    <p><input type="text" id="t6"/></p>
+    <button onclick="f3()">Submit</button>
+    <p><label id="lb2"></label></p>
+    <hr>
+    <p>program to print multiples of number upto 5 elements using For loop</p>
+    <p><input type="text" id="t7"/></p>
+    <button onclick="f4()">Submit</button>
+    <p><label id="lb3"></label></p>
+    <hr>
+    <p>program to print multiples of number upto 5 elements using While loop</p>
+    <p><input type="text" id="t8"/></p>
+    <button onclick="f5()">Submit</button>
+    <p><label id="lb4"></label></p>
+    <hr>
+    <p>program to print series 1,6,11...</p>
+    <!-- <p><input type="text" id="t8"/></p> -->
+    <button onclick="f6()">Submit</button>
+    <p><label id="lb5"></label></p>
+    <hr>
+    <p>program to print if is divisible by 5 or not</p>
+    <p><input type="text" id="t9"/></p>
+    <button onclick="f7()">Submit</button>
+    <p><label id="lb6"></label></p>
+    <hr>
+    <p>program to print the grades</p>
+    <p><input type="text" id="t10"/></p>
+    <button onclick="f8()">Submit</button>
+    <p><label id="lb7"></label></p>
+  </body>
+</html>
