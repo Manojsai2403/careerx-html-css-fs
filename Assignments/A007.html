@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function f1() {
+         let inputvalue = t1.value;
+         let lbl = document.getElementById('lbl');
+         lbl.innerHTML="HELLO WORLD";
+         lbl.style.color=inputvalue;
+         /*switch(inputvalue) {
+
+            case 'green' :lbl.innerHTML = "HELLO WORLD";
+                         lbl.style.color="green";
+                     //   lbl.style.background="yellow"
+                         break;
+            case 'yellow': lbl.innerHTML = "HELLO WORLD";
+                         lbl.style.color="yellow";
+                         break;
+
+            default    : lbl.innerHTML = "HELLO WORLD";
+                        lbl.style.color="black";
+         }*/
+        }
+    </script>
+    <input type="text" placeholder="entercolor" id="t1">
+    <br>
+    <button onclick="f1()">submit</button>
+    <div id="lbl"></div>
+</body>
+</html>
