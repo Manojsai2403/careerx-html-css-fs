@@ -3,98 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Login and Registration</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <style>
-        .c {
-            position: relative;
-            padding: 0;
-            background-color: rgb(239, 233, 233);
-            border: 0; 
-            z-index: 1; /* Set initial z-index for page 1 */
-        }
-        .c2 {
-            display: none; /* Initially hide the second page */
-            position: relative;
-            padding: 0;
-            /* background-color: rgba(0, 0, 0, 0.5); */
-            background-color: transparent; 
-            border: 0; 
-            z-index: 2; /* Set initial z-index for page 2 */
-            transition: background-color 0.5s ease;
-        }
-        .overlay {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: transparent;
-            z-index: 3; /* Set z-index higher than page 1 and page 2 */
-            pointer-events: none; /* Allow clicks to pass through overlay */
-        }
-        .b1 {
-            font-size: 70px;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            color: rgb(0, 115, 255);
-            position: absolute;
-            top: 180px;
-            left: 250px;
-        }
-        .b2 {
-            position: absolute;
-            top: 100px;
-            right: 280px;
-            width: 400px;
-            height: 380px;
-            background-color: white;
-            border-radius: 10px;
-            border-style: ridge;
-        }
-        .b3 {
-            font-size: xx-large;
-            position: absolute;
-            top: 260px;
-            left: 250px;
-        }
-        input[type="email"],
-        input[type="password"] {
-            width: 360px; 
-            box-sizing: border-box; 
-            padding: 10px;
-            margin: 10px; 
-            height: 30px;
-            border-radius: 10px;
-        }
-        .g, .g1 {
-            color: white;
-            font-size: x-large;
-            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-            position: absolute;
-            width: 383px; 
-            box-sizing: border-box; 
-            padding: 10px;
-            margin: 10px; 
-            height: 53px;
-            border-radius: 10px;
-            cursor: pointer;
-        }
-        .g {
-            top: 150px;
-            background-color: rgb(0, 115, 255);
-        }
-        .g1 {
-            top: 300px;
-            left: 40px;
-            width: 300px; 
-            background-color: rgb(255, 128, 0);
-        }
-        
+        /* Your CSS styles */
     </style>
 </head>
 <body>
+    <label id="lblMessage"></label>
     <div class="c">
+        <!-- Login Form -->
         <div class="b1">
-             facebook
+             Facebook
         </div>
         <div class="b3">
             Facebook helps you connect and share
@@ -102,39 +22,94 @@
             with the people in your life
         </div>
         <div class="b2">
-            <label id="ibl"></label>
-            <p><input type="email" id="email" placeholder="Email address or phone number"></p>
-            <p><input type="password" id="pass" placeholder="Password"></p>
-            <button class="g">Log in</button>
+            <p><input type="email" id="txtEmail" placeholder="Email address or phone number"></p>
+            <p><input type="password" id="txtPass" placeholder="Password"></p>
+            <button id="login" class="g">Log in</button>
             <br>
             <br>
-            <br>
-            <br>
-            <br>
-            <br>
-            <center><p style="color: rgb(0, 115, 255)">Forgotten password?</p></center>
-            <br>
+            <center><p color="rgb(0, 115, 255)">Forgotten password?</p></center>
             <hr width="90%">
             <center><button class="g1" id="signup">Create New account</button></center>
         </div>
     </div>
     <div class="c2">   
+        <!-- Registration Form -->
+        <div class="b4">
+            <p class="f">Sign Up</p>
+            <p class="s">it's quick and easy</p>
+            <button id="x1" class="x"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <p><input type="text" id="txtRegName" placeholder="Enter Name"></p>
+            <p><input type="email" id="txtRegEmail" placeholder="Enter Email"></p>
+            <p><input type="password" id="txtRegPass" placeholder="New Password"></p>
+            <br>
+            <br>
+            <br>
+            <center><button id="registerButton">Register</button></center> 
+            <label id="lblUsers"></label>
+        </div>
     </div>
+    <div class="overlay"></div>
     <script>
-        const signup = document.getElementById('signup');
-        const page1 = document.querySelector('.c');
-        const page2 = document.querySelector('.c2');
-        const overlay = document.querySelector('.overlay');
-
-        signup.addEventListener("click", () => {
-           page1.style.backgroundColor = 'transparent'; // Make background of page 1 transparent
-           page1.style.pointerEvents = 'none'; // Disable pointer events on page 1
-           page1.style.zIndex = '0'; // Lower the z-index of page 1
-           page2.style.zIndex = '1'; // Increase the z-index of page 2
-           page2.style.display = 'block'; // Show the second page
-           overlay.style.display = 'none'; // Hide the overlay
+        document.getElementById("login").addEventListener("click", () => {
+            validate();
         });
-        
+
+        document.getElementById("signup").addEventListener("click", () => {
+            showRegistrationForm();
+        });
+
+        document.getElementById("x1").addEventListener("click", () => {
+            hideRegistrationForm();
+        });
+
+        function validate() {
+            let strEmail = document.getElementById("txtEmail").value;
+            let strPass = document.getElementById("txtPass").value;
+            let lblMessage = document.getElementById("lblMessage");
+            let found = users.find((value) => {
+                return value.email === strEmail && value.pass === strPass;
+            });
+
+            if (found) {
+                let strName = found.name;
+                lblMessage.innerHTML = `Welcome ${strName}`;
+            } else {
+                lblMessage.innerHTML = "Access Denied";
+            }
+        }
+
+        function showRegistrationForm() {
+            document.querySelector('.c2').style.display = 'block';
+            document.querySelector('.overlay').style.display = 'block';
+        }
+
+        function hideRegistrationForm() {
+            document.querySelector('.c2').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        }
+
+        const users = [];
+
+        document.getElementById("registerButton").addEventListener("click", () => {
+            register();
+        });
+
+        function register() {
+            const txtRegName = document.getElementById('txtRegName');
+            const txtRegEmail = document.getElementById('txtRegEmail');
+            const txtRegPass = document.getElementById('txtRegPass');
+            const lblUsers = document.getElementById('lblUsers');
+
+            const obj = {};
+            obj.name = txtRegName.value;
+            obj.email = txtRegEmail.value;
+            obj.pass = txtRegPass.value;
+
+            users.push(obj);
+            lblUsers.innerHTML = JSON.stringify(users);
+            
+            hideRegistrationForm(); // Hide registration form after registration
+        }
     </script>
 </body>
 </html>

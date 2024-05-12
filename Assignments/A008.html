@@ -37,7 +37,7 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background-color: transparent;
+            background-color: rgba(0, 0, 0, 0.1); ;
             z-index: 3; /* Set z-index higher than page 1 and page 2 */
             pointer-events: none; /* Allow clicks to pass through overlay */
         }
@@ -128,6 +128,23 @@
             height:53px;
             border-radius:10px;
         }
+        .g12{
+            color:white;
+            font-size:large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position:absolute;
+            left:80px;
+            top:400px;
+            width: 300px; 
+            background-color:rgb(255, 128, 0);
+            autofocus
+            required
+            box-sizing: border-box; 
+            padding: 10px;
+            margin: 10px; 
+            height:53px;
+            border-radius:10px;
+        }
         .x {
             position:relative;
             top:-95px;
@@ -143,36 +160,64 @@
             top:-5px;
             margin-left:10px;
         }
-        #txtRegEmail {
+        .s1 {
             position:relative;
-            top:-30px;
+            top:-60px;
+            margin-left:12px;
+        }
+        .s2 {
+            position:relative;
+            top:-60px;
+            margin-left:12px;
+            font-size:15px;
+        }
+        #txtRegName {
+            position:relative;
+             top:-20px; 
             left:10px;
-            width:91.5%;
+            width:43.5%;
+            height:30px;
+            /* box-sizing: border-box;  */
+            border-radius: 10px;
+            padding:8px;
+        }
+        #txtRegsur {
+            position:absolute;
+            top:112px;
+            left:255px;
+            width:42%;
             height:30px;
             border-radius: 10px;
             padding:8px;
         }
-        #txtRegpass {
-            position:absolute;
-            top:150px;
-            left:1px;
-            width:90.5%;
-            height:25px;
+        #txtRegEmail {
+            position:relative;
+             top:-30px; 
+            left:10px;
+            width:91.5%;
+            height:30px;
             border-radius: 10px;
+            /* box-sizing: border-box;  */
+            /* border-radius: 10px; */
+            padding:8px;
         }
-        #lblMessage {
-            position:absolute;
-            margin:0;
-            top:0px;
-            left:0px;
+        #txtRegPass {
+            position:relative; 
+             top:-45px;  
+             left:1px;
+            width:94.9%;
+            height:45px;
+            /* box-sizing: border-box;  */
+            
+            border-radius: 10px;
+            padding:8px;
         }
         
     </style>
 </head>
 <body>
-    <label id="lblMessage"></label>
     <div class="c">
-        <!-- <label id="lblMessage"></label> -->
+        
         <div class="b1">
              facebook
         </div>
@@ -182,17 +227,19 @@
             with the people in your life
         </div>
         <div class="b2">
-            
+            <label id="lblMessage"></label>
+            <!-- <label id="lblUsers"></label> -->
             <p><input type="email"  id="txtEmail"  placeholder="Email address or phone number"></p>
+
             <p><input type="password" id="txtPass" placeholder="Password"></p>
-            <button onclick="validate()" class="g">Log in</button>
+            <button  id="login" class="g">Log in</button>
             <br>
             <br>
             <center><p color="rgb(0, 115, 255)">Forgotten password?</p></center>
            
             <hr width="90%">
             <center><button class="g1" id="signup">Create New account</button></center>
-           
+            
         </div>
     </div>
     <div class="c2">   
@@ -201,83 +248,80 @@
             <p class="s">it's quick and easy</p>
 
             <button id="x1" class="x"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <p><input type="text" id="txtRegName" placeholder="Enter Name"><input type="text" id="txtRegsur" placeholder="Surname"></p>
             <p><input type="text" id="txtRegEmail" placeholder="Enter Email" /></p>
-            <p><input type="password" id="txtRegpass" placeholder="New Password" /></p>
-            <br>
-            <br>
-            <br>
-            <center><button onclick="register()">Register</button> </center> 
+            <p><input type="password" id="txtRegPass" placeholder="New Password" /></p>
+            <p class="s1">Gender?</p>
+           <p class="s1"><input type="radio" name="gender" id="gen">Female
+                <input type="radio" name="gender" id="gen">Male
+                <input type="radio" name="gender" id="gen">Custom</p>
+          <p class="s2">By clicking Sign up, you agree to our terms, Privacy Policy and Cookies Policy<br>
+           You may receive SMS notifications from us and can opt out at any time.</p><br>
+            <center><button id="registerButton"class="g12">Sign Up</button> </center> 
             <label id="lblUsers"></label>
          </div>
     </div>
     <script>
-         function validate() {
+        document.getElementById("login").addEventListener("click", () => {
+            validate();
+        });
+
+        document.getElementById("signup").addEventListener("click", () => {
+            showRegistrationForm();
+        });
+
+        document.getElementById("x1").addEventListener("click", () => {
+            hideRegistrationForm();
+        });
+
+        function validate() {
             let strEmail = document.getElementById("txtEmail").value;
             let strPass = document.getElementById("txtPass").value;
-            let lblMessage = document.getElementById("lblMessage"); // Assuming lblMessage exists in your HTML
-            let found = users.find((value)=>{
-            return value.email===strEmail && value.pass===strPass
-           })
-        console.log(found)
-           if (found) {
-              let strName = found.name
-              lblMessage.innerHTML = `Welcome ${strName}`;
-           } else {
-              lblMessage.innerHTML = "Access Denied";
-           }
+            let lblMessage = document.getElementById("lblMessage");
+            let found = users.find((value) => {
+                return value.email === strEmail && value.pass === strPass;
+            });
+
+            if (found) {
+                let strName = found.name;
+                lblMessage.innerHTML = `Welcome ${strName}`;
+            } else {
+                lblMessage.innerHTML = "Access Denied";
+            }
         }
-        const signup = document.getElementById('signup');
-        const page1 = document.querySelector('.c');
 
-        const page2 = document.querySelector('.c2');
+        function showRegistrationForm() {
+            document.querySelector('.c2').style.display = 'block';
+            document.querySelector('.overlay').style.display = 'block';
+        }
 
-        const x = document.getElementById('x1');
-        const register = document.getElementById('register');
-        // const email = document.getElementById('email');
+        function hideRegistrationForm() {
+            document.querySelector('.c2').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        }
 
-        // const pass = document.getElementById('password');
-
-       const overlay = document.querySelector('.overlay');
-
-        signup.addEventListener("click", () => {
-           page2.style.backgroundColor = 'transparent'; // Make background of page 1 transparent
-           page1.style.pointerEvents = 'none'; // Disable pointer events on page 1
-            // page1.style.zIndex = '0'; // Lower the z-index of page 1
-        //    page2.style.zIndex = '1'; // Increase the z-index of page 2
-           page2.style.display = 'block'; // Show the second page
-           overlay.style.display = 'none'; // Hide the overlay
-           const txtRegName = document.getElementById('txtRegName');
-        const txtRegEmail = document.getElementById('txtRegEmail');
-        const txtRegPass = document.getElementById('txtRegPass');
-        const lblUsers = document.getElementById('lblUsers');
-        const registerButton = document.getElementById('registerButton');
         const users = [];
+
+        document.getElementById("registerButton").addEventListener("click", () => {
+            register();
+        });
+
         function register() {
-           const obj = {};
-          obj.name = txtRegName.value;
-          obj.email = txtRegEmail.value;
-          obj.pass = txtRegPass.value;
-          users.push(obj);
-          lblUsers.innerHTML = JSON.stringify(users);
-         }
-         registerButton.addEventListener('click', register);
-        });
-        x.addEventListener("click", () => {
-        //    page1.style.backgroundColor = 'transparent'; // Make background of page 1 transparent
-           page1.style.pointerEvents = 'auto'; // Disable pointer events on page 1
-        //    page1.style.zIndex = '0'; // Lower the z-index of page 1
-        //    page2.style.zIndex = '1'; // Increase the z-index of page 2
-           page1.style.display = 'block'; // Show the second page
-           page2.style.display='none';
-           overlay.style.display = 'none'; // Hide the overlay
-          
-
-        });
-
-      
-        
-      
+            const txtRegName = document.getElementById('txtRegName');
+            const txtRegEmail = document.getElementById('txtRegEmail');
+            const txtRegPass = document.getElementById('txtRegPass');
+            const lblUsers = document.getElementById('lblUsers');
+            const gen = document.getElementById('gen');
+            const obj = {};
+            obj.name = txtRegName.value;
+            obj.email = txtRegEmail.value;
+            obj.pass = txtRegPass.value;
+            obj.gen = gen.value;
+            users.push(obj);
+            lblUsers.innerHTML = JSON.stringify(users);
+            
+            hideRegistrationForm(); // Hide registration form after registration
+        }
     </script>
-    
 </body>
 </html>
