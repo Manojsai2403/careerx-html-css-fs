@@ -47,18 +47,18 @@
     <script>
       let divProducts = document.querySelector(".divProducts");
       let products = [
-        { id: 1, name: "Tomato", image: "/images/tomato.png", cid: 1 },
-        { id: 2, name: "Cabbage", image: "/images/cabbage.png", cid: 1 },
-        { id: 3, name: "Apple", image: "/images/apple.png", cid: 0 },
-        { id: 4, name: "Orange", image: "/images/orange.png", cid: 0 },
-        { id: 5, name: "Tomato", image: "/images/tomato.png", cid: 1 },
-        { id: 6, name: "Cabbage", image: "/images/cabbage.png", cid: 1 },
-        { id: 7, name: "Apple", image: "/images/apple.png", cid: 0 },
-        { id: 8, name: "Orange", image: "/images/orange.png", cid: 0 },
-        { id: 9, name: "Apple", image: "/images/apple.png", cid: 0 },
-        { id: 10, name: "Orange", image: "/images/orange.png", cid: 0 },
+        { id: 1, name: "Tomato", image: "../image/tomato.jpg", cid: 1 },
+        { id: 2, name: "Cabbage", image: "../image/cabbage.jpeg", cid: 1 },
+        { id: 3, name: "Apple", image: "../image/apple.webp", cid: 0 },
+        { id: 4, name: "Orange", image: "../image/orange.webp", cid: 0 },
+        { id: 5, name: "Tomato", image: "../image/tomato.jpg", cid: 1 },
+        { id: 6, name: "Cabbage", image: "../image/cabbage.jpeg", cid: 1 },
+        { id: 7, name: "Apple", image: "../image/apple.webp", cid: 0 },
+        { id: 8, name: "Orange", image: "../image/orange.webp", cid: 0 },
+        { id: 9, name: "Apple", image: "../image/apple.webp", cid: 0 },
+        { id: 10, name: "Orange", image: "../image/orange.webp", cid: 0 },
       ];
-      let cid = 0;
+      // let cid = 0;
       let score = 0;
       let index = 0;
       const showProduct = () => {
@@ -70,6 +70,7 @@
                    </div>`;
         divProducts.innerHTML = txt;
       };
+      showProduct();
       let d = document.body;
       d.onkeydown = (e) => {
         cid = products[index].cid;
@@ -78,11 +79,11 @@
           score++;
         } else if (e.key == "ArrowRight" && cid === 1) {
           score++;
-        }
+        } 
         scoreCard.innerHTML = "Score: " + score;
         showProduct();
       };
-      showProduct();
+       
     </script>
   </body>
 </html>
