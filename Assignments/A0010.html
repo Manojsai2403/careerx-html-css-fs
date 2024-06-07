@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <style>
+        .c {
+             /* margin:0; */
+             position:relative;
+             padding:0;
+             background-color: rgb(239, 233, 233);
+            /* width:1500px; */
+             /* height:700px;  */
+            position: relative;
+              border:0; 
+              z-index: 1;
+        }
+        .c2{
+             /* margin:0; */
+             position:relative;
+             display: none; /* Initially hide the second page */
+             padding:0;
+             /* background-color: rgba(0, 0, 0, 10); */
+             background-color: rgba(0, 0, 0, 0.1); /* Semi-transparent background */
+            backdrop-filter: blur(5px); /* Apply a blur effect to the background */
+             /* background-color: transparent; */
+            /* width:1500px; */
+             /* height:700px;  */
+              border:0; 
+              z-index: 2;
+        }
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.1); ;
+            z-index: 3; /* Set z-index higher than page 1 and page 2 */
+            pointer-events: none; /* Allow clicks to pass through overlay */
+        }
+        .b1{
+            font-size:70px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            color:rgb(0, 115, 255);
+            position :absolute;
+            top:180px;
+            left:250px;
+        }
+        .b2 {
+            position:absolute;
+            top:100px;
+            right:280px;
+            width:400px;
+            height:380px;
+            background-color:solid white;
+            border-radius:10px;
+            border-style: ridge;
+        }
+        .b3 {
+            font-size:xx-large;
+            position :absolute;
+            top:260px;
+            left:250px;
+        }
+        .b4 {
+            position:absolute;
+            top:100px;
+            left:500px;
+            width:500px;
+            height:500px;
+            background-color: white;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+         input[type="email"]{
+            position :relative;
+            top:-10px;
+            width:380px;
+            height:30px;
+            box-sizing: border-box; 
+            padding: 30px;
+            margin: 8px; 
+            border-radius:10px;
+        }
+        input[type="password"] {
+            position:relative;
+            top:-20px;
+            width: 380px; 
+            box-sizing: border-box; 
+            padding: 30px;
+            margin: 10px; 
+            height:30px;
+            border-radius:10px;
+        }
+         .g{
+            color:white;
+            font-size:x-large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position:absolute;
+            top:200px;
+            width: 383px; 
+            background-color:rgb(0, 115, 255);
+            autofocus
+            required
+            box-sizing: border-box; 
+            padding: 10px;
+            margin: 10px; 
+            height:53px;
+            border-radius:10px;
+        }
+        .g1{
+            color:white;
+            font-size:large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position:absolute;
+            left:40px;
+            top:300px;
+            width: 300px; 
+            background-color:rgb(255, 128, 0);
+            autofocus
+            required
+            box-sizing: border-box; 
+            padding: 10px;
+            margin: 10px; 
+            height:53px;
+            border-radius:10px;
+        }
+        .g12{
+            color:white;
+            font-size:large;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+            position:absolute;
+            left:80px;
+            top:400px;
+            width: 300px; 
+            background-color:rgb(255, 128, 0);
+            autofocus
+            required
+            box-sizing: border-box; 
+            padding: 10px;
+            margin: 10px; 
+            height:53px;
+            border-radius:10px;
+        }
+        .x {
+            position:relative;
+            top:-95px;
+            left:475px;
+        }
+        .f{
+            margin:10px;
+            font-size:30px;
+            font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        }
+        .s {
+            position:relative;
+            top:-5px;
+            margin-left:10px;
+        }
+        .s1 {
+            position:relative;
+            top:-60px;
+            margin-left:12px;
+        }
+        .s2 {
+            position:relative;
+            top:-60px;
+            margin-left:12px;
+            font-size:15px;
+        }
+        #txtRegName {
+            position:relative;
+             top:-20px; 
+            left:10px;
+            width:43.5%;
+            height:30px;
+            /* box-sizing: border-box;  */
+            border-radius: 10px;
+            padding:8px;
+        }
+        #txtRegsur {
+            position:absolute;
+            top:112px;
+            left:255px;
+            width:42%;
+            height:30px;
+            border-radius: 10px;
+            padding:8px;
+        }
+        #txtRegEmail {
+            position:relative;
+             top:-30px; 
+            left:10px;
+            width:91.5%;
+            height:30px;
+            border-radius: 10px;
+            /* box-sizing: border-box;  */
+            /* border-radius: 10px; */
+            padding:8px;
+        }
+        #txtRegPass {
+            position:relative; 
+             top:-45px;  
+             left:1px;
+            width:94.9%;
+            height:45px;
+            /* box-sizing: border-box;  */
+            
+            border-radius: 10px;
+            padding:8px;
+        }
+        
+    </style>
+</head>
+<body>
+    <div class="c">
+        
+        <div class="b1">
+             facebook
+        </div>
+        <div class="b3">
+            Facebook helps you connect and share
+            <br>
+            with the people in your life
+        </div>
+        <div class="b2">
+            <label id="lblMessage"></label>
+            <!-- <label id="lblUsers"></label> -->
+            <p><input type="email"  id="txtEmail"  placeholder="Email address or phone number"></p>
+
+            <p><input type="password" id="txtPass" placeholder="Password"></p>
+            <button  id="login" class="g">Log in</button>
+            <br>
+            <br>
+            <center><p color="rgb(0, 115, 255)">Forgotten password?</p></center>
+           
+            <hr width="90%">
+            <center><button class="g1" id="signup">Create New account</button></center>
+            
+        </div>
+    </div>
+    <div class="c2">   
+         <div class="b4">
+            <p class="f">Sign Up</p>
+            <p class="s">it's quick and easy</p>
+
+            <button id="x1" class="x"><i class="fa fa-times" aria-hidden="true"></i></button>
+            <p><input type="text" id="txtRegName" placeholder="Enter Name"><input type="text" id="txtRegsur" placeholder="Surname"></p>
+            <p><input type="text" id="txtRegEmail" placeholder="Enter Email" /></p>
+            <p><input type="password" id="txtRegPass" placeholder="New Password" /></p>
+            <p class="s1">Gender?</p>
+           <p class="s1"><input type="radio" name="gender" id="gen">Female
+                <input type="radio" name="gender" id="gen">Male
+                <input type="radio" name="gender" id="gen">Custom</p>
+          <p class="s2">By clicking Sign up, you agree to our terms, Privacy Policy and Cookies Policy<br>
+           You may receive SMS notifications from us and can opt out at any time.</p><br>
+            <center><button id="registerButton"class="g12">Sign Up</button> </center> 
+            <label id="lblUsers"></label>
+         </div>
+    </div>
+    <script>
+        document.getElementById("login").addEventListener("click", () => {
+            validate();
+        });
+
+        document.getElementById("signup").addEventListener("click", () => {
+            showRegistrationForm();
+        });
+
+        document.getElementById("x1").addEventListener("click", () => {
+            hideRegistrationForm();
+        });
+
+        function validate() {
+            let strEmail = document.getElementById("txtEmail").value;
+            let strPass = document.getElementById("txtPass").value;
+            let lblMessage = document.getElementById("lblMessage");
+            let found = users.find((value) => {
+                return value.email === strEmail && value.pass === strPass;
+            });
+
+            if (found) {
+                let strName = found.name;
+                lblMessage.innerHTML = `Welcome ${strName}`;
+            } else {
+                lblMessage.innerHTML = "Access Denied";
+            }
+        }
+
+        function showRegistrationForm() {
+            document.querySelector('.c2').style.display = 'block';
+            document.querySelector('.overlay').style.display = 'block';
+        }
+
+        function hideRegistrationForm() {
+            document.querySelector('.c2').style.display = 'none';
+            document.querySelector('.overlay').style.display = 'none';
+        }
+
+        const users = [];
+
+        document.getElementById("registerButton").addEventListener("click", () => {
+            register();
+        });
+
+        function register() {
+            const txtRegName = document.getElementById('txtRegName');
+            const txtRegEmail = document.getElementById('txtRegEmail');
+            const txtRegPass = document.getElementById('txtRegPass');
+            const lblUsers = document.getElementById('lblUsers');
+            const gen = document.getElementById('gen');
+            const obj = {};
+            obj.name = txtRegName.value;
+            obj.email = txtRegEmail.value;
+            obj.pass = txtRegPass.value;
+            obj.gen = gen.value;
+            users.push(obj);
+            lblUsers.innerHTML = JSON.stringify(users);
+            
+            hideRegistrationForm(); // Hide registration form after registration
+        }
+    </script>
+</body>
+</html>
